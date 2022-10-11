@@ -11,6 +11,8 @@ require 'rainbow/refinement'
 class DatabaseConnection
   using Rainbow
 
+  Rainbow.enabled = true
+
   def self.connect(database_name)
     @host = '127.0.0.1'
     @database_name = database_name
