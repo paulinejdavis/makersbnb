@@ -24,13 +24,19 @@ class UserRepository
   end 
 
   def log_in(email)
-    
+    sql = 'UPDATE users SET loggedin = true WHERE email = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [email])
   end
 
   def log_out(email)
+    sql = 'UPDATE users SET loggedin = false WHERE email = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [email])
   end
 
-  def loggedin?
-    # returns true or false
+  def loggedin(email)
+      sql = 'SELECT loggedin FROM users WHERE email = $1;'
+      result_set = DatabaseConnection.exec_params(sql, [email])
+      answer = result_set[0]['loggedin']
+      return answer
   end
 end
