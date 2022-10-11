@@ -33,17 +33,17 @@ describe Application do
     end
   end
 
-  # context 'POST /' do
-  #   it 'should show the spaces page' do
-  #     response = post(
-  #      '/',
-  #      name: 'John',
-  #      email: 'john1@gmail.com',
-  #      password: '12345678a'
-  #     )
+  context 'POST /' do
+    it 'should show the spaces page' do
+      response = post(
+       '/',
+       name: 'John',
+       email: 'john1@gmail.com',
+       password: '12345678a'
+      )
 
-  #     expect(response.status).to eq(200)
-  #     expect(response.body).to include("<h1>Book a Space</h1>")
-  #   end
-  # end
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>Book a Space</h1>")
+    end
+  end
 end

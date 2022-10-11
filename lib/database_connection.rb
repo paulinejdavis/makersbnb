@@ -13,7 +13,7 @@ class DatabaseConnection
 
   Rainbow.enabled = true
 
-  def self.connect(database_name)
+  def self.connect
     @host = '127.0.0.1'
     @database_name = database_name
     puts "Connecting to database `#{@database_name}`...".blue unless test_mode?

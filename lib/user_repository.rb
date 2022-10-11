@@ -1,4 +1,5 @@
-require 'user.rb'
+require './lib/user.rb'
+require_relative './database_connection.rb'
 
 class UserRepository
 
