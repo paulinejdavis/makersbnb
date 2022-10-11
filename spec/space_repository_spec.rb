@@ -27,23 +27,25 @@ describe SpaceRepository do
     end
 
     describe '#create_space' do
-      repo = SpaceRepository.new
-      space = Space.new
-      space.name = 'Treehouse'
-      space.description = 'Lovely place in the forest'
-      space.price_per_night = 120
-      space.available_dates = '12/03/2023, 12/04/2023'
-      space.user_id = 1
+        it 'adds a new space' do
+        repo = SpaceRepository.new
+        space = Space.new
+        space.name = 'Treehouse'
+        space.description = 'Lovely place in the forest'
+        space.price_per_night = 120
+        space.available_dates = '12/03/2023, 12/04/2023'
+        space.user_id = 1
 
-      repo.create_space(space)
-  
-      all_spaces = repo.all
+        repo.create_space(space)
+    
+        all_spaces = repo.all
 
-      expect(all_spaces.length).to eq 3
-      expect(all_spaces.last.name).to eq 'Treehouse'
-      expect(all_spaces.last.description).to eq'Lovely place in the forest'
-      expect(all_spaces.last.price_per_night).to eq 120
-      expect(all_spaces.last.available_dates).to eq '12/03/2023, 12/04/2023'
+        expect(all_spaces.length).to eq 3
+        expect(all_spaces.last.name).to eq 'Treehouse'
+        expect(all_spaces.last.description).to eq'Lovely place in the forest'
+        expect(all_spaces.last.price_per_night).to eq 120
+        expect(all_spaces.last.available_dates).to eq '12/03/2023, 12/04/2023'
+        end
     end
 end
 
