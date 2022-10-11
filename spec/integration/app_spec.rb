@@ -23,6 +23,8 @@ describe Application do
       response = get('/')
 
       expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>Sign-in to Makersbnb</h1>")
+      expect(response.body).to include("<label>Email:</label>")
     end
   end
 end
