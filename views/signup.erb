@@ -1,0 +1,51 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Sign-in to Makersbnb</h1>
+
+    <script type="text/javascript">
+  function validateForm() {
+    var a = document.forms["Form"]["answer_a"].value;
+    var b = document.forms["Form"]["answer_b"].value;
+    var c = document.forms["Form"]["answer_c"].value;
+    if (a == null || a == "", b == null || b == "", c == null || c == "") {
+      alert("Please Fill All Required Field");
+      return false;
+    }
+  }
+</script>
+
+    <form action="/signin" method="POST">
+    <div>
+      <label> Your name:</label>
+      <input type="text" name="name" required pattern="^[\w\-\s]+$">
+    </div>
+
+    <div>
+      <label>Email:</label>
+      <input type="text" name="email" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+    </div>
+
+     <div>
+      <label>Password (must contain at least 8 characters, at least one number and letter and no symbols):</label>
+      <input type="password" name="password" id="myInput" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+      <input type="checkbox" onclick="myFunction()">Show Password
+      <script>
+        function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+          x.type = "text";
+         } else {
+          x.type = "password";
+         }
+        }
+      </script>
+    </div>
+      <input type="submit" value="Sign up to Makersbnb">
+    </form>
+
+    <div>
+      Already signed up? <a href='/login'>Go back to the login page</a> 
+    </div>
+  </body>
+</html>

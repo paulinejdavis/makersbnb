@@ -1,0 +1,10 @@
+<html>
+  <head></head>
+  <body>
+    <h1><%= @space.name %></h1>
+    <p>
+      <%= @aspace.description %>
+      Pick a night: <%= @space.available_nights.each { |night| puts night } %>
+    </p>
+  </body>
+</html>
