@@ -16,7 +16,7 @@
 
     <div>
       <label>Available dates (format DD/MM/YYYY, separate each date by a comma):</label>
-      <input type="text" style="height:200px; width:600px;" name="available_dates" required pattern="\d*([.,\/]?\d+)">
+      <input type="text" style="height:200px; width:600px;" name="available_dates" required pattern="^(\s{0,})(\d{2}\/\d{2}\/\d{4})(,\d{2}\/\d{2}\/\d{4}){1,}(\s){0,}$">
     </div>
 
       <input type="submit" value="Add your space to Makersbnb">

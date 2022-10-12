@@ -69,7 +69,7 @@ describe Application do
   context 'POST /space_created' do
     it 'Should return a success page' do
       response = post(
-        '/space_created',
+        '/post_space',
         email: 'jonh1@gmail.com',
         name: 'Treehouse',
         description: 'A house',

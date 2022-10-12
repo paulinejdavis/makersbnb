@@ -44,7 +44,7 @@ class UserRepository
       return answer
   end
 
-  def  find_by_email(email)
+  def find_by_email(email)
     sql = 'SELECT id FROM users WHERE email = $1;'
     result_set = DatabaseConnection.exec_params(sql, [email])
     answer = result_set[0]['id'].to_i
