@@ -21,7 +21,7 @@ class Application < Sinatra::Base
   
   get '/signup' do
     return erb(:signup)
-  end 
+  end
 
   post '/' do
     user_repo = UserRepository.new
@@ -42,5 +42,8 @@ class Application < Sinatra::Base
     user_repo.sign_up(new_user)
 
     return erb(:spaces)
+  end
+  get '/post_space' do
+    return erb(:post_space)
   end
 end
