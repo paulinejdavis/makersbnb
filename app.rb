@@ -18,12 +18,19 @@ class Application < Sinatra::Base
     @spaces = space_repo.all
     return erb(:spaces)
   end
+
   
   get '/signup' do
     return erb(:signup)
   end 
 
-  post '/' do
+  get'/spacesloggedin' do
+    space_repo = SpaceRepository.new
+    @spaces = space_repo.all
+    return erb(:signed_loggedin)
+  end
+
+  post '/spacesloggedin' do
     user_repo = UserRepository.new
     # all_users = user_repo.all
     space_repo = SpaceRepository.new
@@ -41,6 +48,8 @@ class Application < Sinatra::Base
 
     user_repo.sign_up(new_user)
 
-    return erb(:spaces)
+    return erb(:signed_loggedin)
   end
+
+  
 end
