@@ -62,4 +62,11 @@ class Application < Sinatra::Base
     space_repo.create_space(new_space)
     return erb(:space_created)
   end
+
+  get '/:id' do
+    space_repo = SpaceRepository.new
+    @space = space_repo.find(params[:id])
+
+    return erb(:individual_space)
+  end
 end

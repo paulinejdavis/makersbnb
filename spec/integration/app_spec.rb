@@ -84,7 +84,7 @@ describe Application do
 
   context 'GET /:id' do
     it 'shows the individual page of a space' do
-      repsponse = get('/1')
+      response = get('/1')
 
       expect(response.status).to eq(200)
       expect(response.body).to include('<h1>The Coza, Joshua Tree</h1>')
