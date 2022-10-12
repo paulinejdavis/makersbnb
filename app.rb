@@ -43,7 +43,30 @@ class Application < Sinatra::Base
 
     return erb(:spaces)
   end
+
   get '/post_space' do
     return erb(:post_space)
+  end
+
+  post '/space_created' do
+    user_repo = UserRepository.new
+    # all_users = user_repo.all
+    space_repo = SpaceRepository.new
+    @spaces = space_repo.all
+    
+    new_space = Space.new
+
+    new_space.name = params[:name]
+    new_space.description = params[:description]
+    new_space.available_dates = params[:available_dates]
+    
+
+
+    new_user = User.new
+
+    new_user.name = params[:name]
+    new_user.email = params[:email]
+    new_user.password = params[:password]
+
   end
 end
