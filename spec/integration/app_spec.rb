@@ -65,4 +65,19 @@ describe Application do
       expect(response.body).to include ('<input type="submit" value="Add your space to Makersbnb">')
     end
   end
+ 
+  context 'POST /space_created' do
+    it 'Should return a success page' do
+      response = post(
+        '/space_created',
+        email: 'jonh1@gmail.com',
+        name: 'Treehouse',
+        description: 'A house',
+        available_dates: '22/03/2022, 23/03/2022'
+       )
+      expect(response.status).to eq (200)
+      expect(response.body).to include ("</h1>Your space has been successfully created</h1>")
+      expect(response.body).to include ("<a href='/'>Go back to main page</a>")
+    end
+  end
 end
