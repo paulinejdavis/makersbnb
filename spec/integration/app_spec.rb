@@ -28,7 +28,16 @@ describe Application do
       response = get('/')
 
       expect(response.status).to eq(200)
-      expect(response.body).to include("<h1>Sign-in to Makersbnb</h1>")
+      expect(response.body).to include("<h1>Book a Space</h1>")
+      expect(response.body).to include("<a href='/post_space'>Add a new space</a>")
+    end
+  end
+  context 'GET /signup' do
+    it 'should display the signup form' do
+      response = get('/signup')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>Sign Up to Makersbnb</h1>")
       expect(response.body).to include("<label>Email:</label>")
     end
   end
