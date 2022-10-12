@@ -1,5 +1,5 @@
 require_relative './database_connection.rb'
-require_relative './space.rb'
+require 'space'
 
 class SpaceRepository
   def all

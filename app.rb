@@ -1,10 +1,10 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/space_repository.rb'
-require './lib/space.rb'
-require './lib/user_repository.rb'
-require './lib/user.rb'
-require './lib/database_connection'
+require_relative 'lib/space_repository.rb'
+require_relative 'lib/space.rb'
+require_relative 'lib/user_repository.rb'
+require_relative 'lib/user.rb'
+require_relative 'lib/database_connection'
 
 DatabaseConnection.connect
 
@@ -55,10 +55,11 @@ class Application < Sinatra::Base
 
     new_space.name = params[:name]
     new_space.description = params[:description]
+    new_space.price_per_night = params[:price_per_night].to_i
     new_space.available_dates = params[:available_dates]
-    new_space.user_id = user_repo.find_by_email(params[:email])
+    new_space.user_id = user_repo.find_by_email(params[:email]).to_i
 
-    space_repo.create(new_space)
+    space_repo.create_space(new_space)
     return erb(:space_created)
   end
 end
