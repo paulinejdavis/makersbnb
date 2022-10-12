@@ -15,7 +15,7 @@
   }
 </script>
 
-    <form action="/signin" method="POST">
+    <form action="/" method="POST">
     <div>
       <label> Your name:</label>
       <input type="text" name="name" required pattern="^[\w\-\s]+$">
@@ -41,11 +41,14 @@
         }
       </script>
     </div>
-      <input type="submit" value="Sign up to Makersbnb">
+      <a href='/'><input type="submit" value="Sign up to Makersbnb"></a>
     </form>
 
     <div>
       Already signed up? <a href='/login'>Go back to the login page</a> 
+    </div>
+    <div>
+      <a href='/'>Go to the listings page</a> 
     </div>
   </body>
 </html>

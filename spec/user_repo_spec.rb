@@ -1,5 +1,5 @@
-require 'users'
-require 'users_repository'
+require 'user'
+require 'user_repository'
 
 def reset_users_table
   seed_sql = File.read('spec/seeds.sql')
@@ -22,7 +22,7 @@ describe UserRepository do
   context "when sign_up is called" do
     it "creates a user" do
       repo = UserRepository.new
-      user = Users.new
+      user = User.new
       user.name = "John"
       user.email = "john1@gmail.com"
       user.password = "1234"

@@ -1,7 +1,12 @@
 require "spec_helper"
 require "rack/test"
-require_relative '../../app'
+require_relative '../../app.rb'
 require 'json'
+
+require 'space_repository.rb'
+require 'space.rb'
+require 'user_repository.rb'
+require 'user.rb'
 
 describe Application do
   # This is so we can use rack-test helper methods.
@@ -23,6 +28,22 @@ describe Application do
       response = get('/')
 
       expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>Sign-in to Makersbnb</h1>")
+      expect(response.body).to include("<label>Email:</label>")
+    end
+  end
+
+  context 'POST /' do
+    it 'should show the spaces page' do
+      response = post(
+       '/',
+       name: 'John',
+       email: 'john1@gmail.com',
+       password: '12345678a'
+      )
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>Book a Space</h1>")
     end
   end
 end

@@ -1,3 +1,7 @@
+require './lib/user.rb'
+require_relative './database_connection.rb'
+
+
 class UserRepository
 
   def all
@@ -6,7 +10,7 @@ class UserRepository
     result_set = DatabaseConnection.exec_params(sql, [])
     result_set.each do |record|
 
-      user = Users.new
+      user = User.new
       user.id = record['id'].to_i
       user.name = record['name']
       user.email = record['email']
