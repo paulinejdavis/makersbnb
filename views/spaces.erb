@@ -2,21 +2,21 @@
 <html>
 
 <body>
-<div>
-<a href='/signup/maker'>Sign-up</a> | <a href='/login/form'>Log-in</a>  | <a href='/logout/form'>Log-out</a>
-</div>
+  <div>
+    <a href='/signup'>Sign-up</a> | <a href='/login/form'>Log-in</a>  | <a href='/logout/form'>Log-out</a>
+  </div>
 
-<h1>Book a Space</h1>
-<a href='/post_space/new'>Add a new space</a>
-<div>
-<% @spaces.each do |space| %>
-        <div>
-        <b>By: <%= space.name %></b>
-        <p>
-        <%= space.content %> 
-        </p>
-        </div> 
-         <% end %>  
-</div>
-</body>
+  <h1>Book a Space</h1>
+    <a href='/post_space/new'>Add a new space</a>
+  <div>
+    <% @spaces.each do |space| %>
+  <div>
+    <b>By: <%= space.name %></b>
+    <p>
+    <%= space.description %> 
+    </p>
+    </div> 
+    <% end %>  
+    </div>
+  </body>
 </html>
