@@ -20,9 +20,9 @@ class Application < Sinatra::Base
   end
 
   
-  get '/signup' do
-    return erb(:signup)
-  end 
+  # get '/signup' do
+  #   return erb(:signup)
+  # end 
 
   get'/spacesloggedin' do
     space_repo = SpaceRepository.new
@@ -51,5 +51,17 @@ class Application < Sinatra::Base
     return erb(:airbnb_bp_loggedin)
   end
 
+  get '/spaceslog' do
+    space_repo = SpaceRepository.new
+    @spaces = space_repo.all
+    return erb(:airbnb_bp_loggedin)
+  end
   
+  post '/spaceslog' do
+    user_repo = UserRepository.new
+    space_repo = SpaceRepository.new
+    @spaces = space_repo.all
+    user_repo.log_in(params[:email])
+    return erb(:airbnb_bp_loggedin)
+  end
 end

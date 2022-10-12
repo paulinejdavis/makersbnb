@@ -5,7 +5,7 @@ CREATE TABLE users (
   name text,
   email varchar(319),
   password text,
-  loggedin text DEFAULT 'false'
+  loggedin text DEFAULT 'true'
 );
 
 CREATE TABLE spaces (
