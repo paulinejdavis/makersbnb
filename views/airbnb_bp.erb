@@ -261,7 +261,7 @@
     }
 
     .img {
-        display: inline-block;
+        display: inline;
         margin: 30px 5px 0 5px;
     }
 
@@ -280,12 +280,24 @@
         font-weight: 900;
         font-size: 22px;
         text-shadow: 0 0 6px #615e61;
+        display: inline;
+    }
+
+    .dates {
+        margin: -200px 0 0 12px;
+        color: #fff;
+        font-weight: 900;
+        font-size: 15px;
+        color: #484848;
+        display: inline;
     }
 
     .description {
         margin: 180px 0 0 0;
         font-size: 14px;
         color: #484848;
+        padding: 15px;
+        display: inline;
     }/*---line---*/
     hr {
         border: 0;
@@ -802,39 +814,31 @@
 
         </section> -->
 
-        <section class="gallery">
 
-            <div class="prices">
+                <h2 class="title">Book a Space</h2>        
 
-                <h3>Explore Makerbnb picks</h3>
-
-                <div class="img">
+                <div>
+                <% @spaces.each do |space| %>
+                    <div class="img">
                     <img src="https://a2.muscache.com/im/pictures/6152848/b04eddeb_original.jpg?aki_policy=x_medium">
-                    <div class="price-stamp">£ 158</div>
-                    <div class="description">
-                        <h4>The Coza, Joshua Tree</h4>
                     </div>
+                    <div class="price-stamp">£ <%=space.price_per_night %></div>
+                    <div class="description">
+                        <h4> <%=space.description %> </h4>
+                    </div>
+                    <div class="dates">
+                        <%=space.available_dates %>
+                    </div>
+                    <br>
+                    <hr>
+                <% end %>
                 </div>
 
-                <div class="img">
-                    <img src="https://a2.muscache.com/im/pictures/34792065/bae84a3f_original.jpg?aki_policy=x_medium">
-                    <div class="price-stamp">R$ 1399</div>
-                    <div class="description">
-                        <h4>Bamburgh Village - Captains Landing'</h4>
-                    </div>
-                </div>
+                <a href='/post_space/new'>Add a new space</a><br>
 
-                <div class="img">
-                    <img src="https://a2.muscache.com/im/pictures/1faf9a4c-f839-44da-bd37-65ddc928379e.jpg?aki_policy=x_medium">
-                    <div class="price-stamp">R$ 576</div>
-                    <div class="description">
-                        <h4>Treehouse</h4>
-                    </div>
-                </div>
+            
 
-            </div>
-
-            <hr>
+        
 
             <!-- <div class="gallery-places">
 
