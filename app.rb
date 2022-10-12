@@ -64,4 +64,18 @@ class Application < Sinatra::Base
     user_repo.log_in(params[:email])
     return erb(:airbnb_bp_loggedin)
   end
+
+  get '/spaceslogout' do
+    space_repo = SpaceRepository.new
+    @spaces = space_repo.all
+    return erb(:airbnb_bp_loggedout)
+  end
+
+  post '/spaceslogout' do
+    user_repo = UserRepository.new
+    space_repo = SpaceRepository.new
+    @spaces = space_repo.all
+    user_repo.log_out(params[:email])
+    return erb(:airbnb_bp_loggedout)
+  end
 end
