@@ -55,4 +55,14 @@ describe Application do
       expect(response.body).to include("<h1>Book a Space</h1>")
     end
   end
+
+  context 'GET /post_space' do
+    it 'should show the post a space page' do
+      response = get('/post_space')
+
+      expect(response.status).to eq (200)
+      expect(response.body).to include ("<h1>Post a space</h1>")
+      expect(response.body).to include ('<input type="submit" value="Add your space to Makersbnb">')
+    end
+  end
 end
