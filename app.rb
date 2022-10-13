@@ -91,6 +91,7 @@ class Application < Sinatra::Base
     new_space.description = params[:description]
     new_space.price_per_night = params[:price_per_night].to_i
     new_space.available_dates = params[:available_dates]
+    new_space.image_link = params[:image_link]
     new_space.user_id = user_repo.find_by_email(params[:email]).to_i
 
     space_repo.create_space(new_space)

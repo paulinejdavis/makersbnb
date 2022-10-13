@@ -74,7 +74,8 @@ describe Application do
         name: 'Treehouse',
         description: 'A house',
         price_per_night: '125',
-        available_dates: '22/03/2022,23/03/2022'
+        available_dates: '22/03/2022,23/03/2022',
+        image_link: 'https://images.squarespace-cdn.com/content/v1/5f90d947c2c5a958455b42b0/1612329316717-AVEE0D54VS8FBO9KKQ6M/treehouse+blue+mountians%2C+luxury+treehouse%2C+australia?format=2500w'
        )
       expect(response.status).to eq (200)
       expect(response.body).to include ("</h1>Your space has been successfully created</h1>")
