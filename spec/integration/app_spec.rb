@@ -70,7 +70,7 @@ describe Application do
     it 'Should return a success page' do
       response = post(
         '/post_space',
-        email: 'jonh1@gmail.com',
+        email: 'joe@gmail.com',
         name: 'Treehouse',
         description: 'A house',
         price_per_night: '125',

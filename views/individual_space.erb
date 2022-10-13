@@ -3,8 +3,12 @@
   <body>
     <h1><%= @space.name %></h1>
     <p>
+    <div>
       <%= @space.description %>
-      Pick a night: <%= @space.available_nights.each { |night| puts night } %>
+    </div>
+    <div>
+      Pick a night: <%= @space.available_dates.split(",").join("\n")%>
+    </div>
     </p>
   </body>
 </html>
