@@ -16,14 +16,19 @@ class Application < Sinatra::Base
   get '/' do
     space_repo = SpaceRepository.new
     @spaces = space_repo.all
-    return erb(:spaces)
-  end
-  
-  get '/signup' do
-    return erb(:signup)
+    return erb(:airbnb_bp)
   end
 
-  post '/' do
+   get '/signup' do
+     return erb(:signup)
+   end 
+
+  get'/spacesloggedin' do
+    space_repo = SpaceRepository.new
+    @spaces = space_repo.all
+    return erb(:airbnb_bp_loggedin)
+
+  post '/spacesloggedin' do
     user_repo = UserRepository.new
     # all_users = user_repo.all
     space_repo = SpaceRepository.new
@@ -41,7 +46,35 @@ class Application < Sinatra::Base
 
     user_repo.sign_up(new_user)
 
-    return erb(:spaces)
+    return erb(:airbnb_bp_loggedin)
+  end
+
+  get '/spaceslog' do
+    space_repo = SpaceRepository.new
+    @spaces = space_repo.all
+    return erb(:airbnb_bp_loggedin)
+  end
+  
+  post '/spaceslog' do
+    user_repo = UserRepository.new
+    space_repo = SpaceRepository.new
+    @spaces = space_repo.all
+    user_repo.log_in(params[:email])
+    return erb(:airbnb_bp_loggedin)
+  end
+
+  get '/spaceslogout' do
+    space_repo = SpaceRepository.new
+    @spaces = space_repo.all
+    return erb(:airbnb_bp_loggedout)
+  end
+
+  post '/spaceslogout' do
+    user_repo = UserRepository.new
+    space_repo = SpaceRepository.new
+    @spaces = space_repo.all
+    user_repo.log_out(params[:email])
+    return erb(:airbnb_bp_loggedout)
   end
 
   get '/post_space' do
