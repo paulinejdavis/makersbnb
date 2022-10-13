@@ -111,8 +111,19 @@
     </div>
     | <a href='/login/form'>Log-in</a>  | <a href='/logout/form'>Log-out</a>
   </div>
+
   <h1>Book a Space</h1>
   <div>
+  <div>
+      <a href='/post_space'>Add a new space</a>
+      <p>
+      Press on the images to go to the individual space page.
+      </p>
+  
+  <div>
+  <h1>Book a Space</h1>
+  </div>
+  
   <div>
       <a href='/post_space'>Add a new space</a>
       <p>
@@ -121,8 +132,9 @@
   </div>
   
   <div>
+
     <% @spaces.each do |space| %>
-  <div>
+   <div>
     <b><%= space.name %></b>
     <p>
     <%= space.description %> 
@@ -130,13 +142,9 @@
     <a href='/<%= space.id %>'><img src="<%= space.image_link %>" alt="Image of the space" style="width:100px;height:100px;"></a>
     </div>
     </p>
+
     </div> 
     <% end %>  
-<<<<<<< HEAD
   </div>
-=======
-    </div>
-    </div>
->>>>>>> 46ca131 (Add image URLs to database and change code to show them in pages)
   </body>
 </html>
