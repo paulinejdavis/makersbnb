@@ -35,7 +35,7 @@ class RequestRepository
             requests << request
         end
         return requests
-
+    end
 
 
 end

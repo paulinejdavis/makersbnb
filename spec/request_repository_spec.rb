@@ -25,7 +25,28 @@ describe RequestRepository do
          end
     end
 
+    describe "#all_for_user" do
+       it "finds all requests that a user has received" do
+         repo = RequestRepository.new
 
+         result = repo.all_for_user(1)
+         
+         expect(result.length).to eq(2)
+         expect(result.first.id).to eq(2)
+         expect(result.first.requested_date).to eq('11/10/2022')
+         expect(result.first.space_id).to eq(1)  
+       end
 
+       it "finds all requests that a user has received" do
+        repo = RequestRepository.new
+
+        result = repo.all_for_user(2)
+        
+        expect(result.length).to eq(1)
+        expect(result.first.id).to eq(1)
+        expect(result.first.requested_date).to eq('16/10/2022')
+        expect(result.first.space_id).to eq(2)  
+      end
+    end
 
 end
