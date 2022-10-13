@@ -55,6 +55,8 @@ class Application < Sinatra::Base
     @spaces = space_repo.all
     return erb(:airbnb_bp_loggedin)
   end
+
+  
   
   post '/spaceslog' do
     user_repo = UserRepository.new
@@ -104,4 +106,5 @@ class Application < Sinatra::Base
 
     return erb(:individual_space)
   end
+  
 end

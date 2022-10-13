@@ -411,12 +411,20 @@
     ---Footer---
     ----------------*/
     footer {
+        position: absolute;
         font-family: Circular, Helvetica, Arial, sans-serif;
-        margin-top: 300px;
+        margin-top: 200px;
         width: 100%;
-        height: 470px;
+        height: 200px;
         background-image: url("https://a0.muscache.com/airbnb/static/footer/background-317dd7c2cb678ddbdb0a983d511cb9a0.png");
-        background-color: #2b2d2e;
+        background-color: #2b2d2e; 
+        bottom: 0;
+        left: 0;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
     }
 
     .footer-content {
@@ -779,7 +787,7 @@
                 <input type="text" placeholder="Where to?">
             </form> -->
 
-        </section>
+    <section>
 
         <ul class="main-nav">
             <!-- <li>
@@ -823,16 +831,16 @@
                 </form>
         </ul>
 
-    </header>
+        </header>
 
-    <main class="site-content">
+        <main class="site-content">
 
-        <h2 class="title">
-            <span>Spaces.</span>
-             Book unique places and spaces 
-            <br>
-            and experience a city like a local.
-        </h2>
+            <h2 class="title">
+                <span>Spaces.</span>
+                Book unique places and spaces 
+                <br>
+                and experience a city like a local.
+            </h2>
 
         <!-- <section class"search-row">
 
@@ -876,19 +884,27 @@
             <button class="search-btn"> Search </button>
 
         </section> -->
+                <hr>
 
-
-                <h2 class="title">Book a Space</h2>        
+                <h2 class="title">Book a Space</h2> 
 
                 <div>
-                <% @spaces.each do |space| %>
-                    <div class="img">
-                    <img src="https://a2.muscache.com/im/pictures/6152848/b04eddeb_original.jpg?aki_policy=x_medium">
-                    </div>
+                    
+                </div>       
+
+                <div>
+                    <% @spaces.each do |space| %>  
+                </div>
+
+                <a href='/<%= space.id %>'><img src="<%= space.image_link %>" alt="Image of the space" style="width:300px;height:300px;"></a>
                     <div class="price-stamp">£ <%=space.price_per_night %></div>
-                    <div class="description">
-                        <h4> <%=space.description %> </h4>
+                    <br>
+                    <br>
+                    <div class="name"><%=space.name%></div>
+                    <a href='/<%= space.id %>' style="text-decoration:none;"><div class="description">
+                        <h4> <%=space.description %> </h4></a>
                     </div>
+                    <br>
                     <div class="dates">
                     <div class="popup" onclick="myFunction()">Available Dates
                         <span class="popuptext" id="myPopup"><%=space.available_dates%></span>
@@ -904,13 +920,6 @@
                     <hr>
                 <% end %>
                 </div>
-
-
-
-            
-
-        
-
             <!-- <div class="gallery-places">
 
                 <h3>Explore </h3>
@@ -1009,11 +1018,9 @@
 
             </div>
 
-        </section>
+    </section>
 
     </main>
-
-    <footer>
 
         <!-- <div class="footer-content">
             <div class="footer-row">
@@ -1134,7 +1141,7 @@
                 </section>
             </div> -->
 
-            <hr>
+    <footer>
 
             <div class="socialnetworks">
                 <h2>Join Us On</h2>

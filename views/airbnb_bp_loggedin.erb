@@ -261,7 +261,7 @@
     }
 
     .img {
-        display: inline-block;
+        display: inline;
         margin: 30px 5px 0 5px;
     }
 
@@ -280,12 +280,24 @@
         font-weight: 900;
         font-size: 22px;
         text-shadow: 0 0 6px #615e61;
+        display: inline;
+    }
+
+    .dates {
+        margin: -200px 0 0 12px;
+        color: #fff;
+        font-weight: 900;
+        font-size: 15px;
+        color: #484848;
+        display: inline;
     }
 
     .description {
         margin: 180px 0 0 0;
         font-size: 14px;
         color: #484848;
+        padding: 15px;
+        display: inline;
     }/*---line---*/
     hr {
         border: 0;
@@ -405,6 +417,8 @@
         height: 470px;
         background-image: url("https://a0.muscache.com/airbnb/static/footer/background-317dd7c2cb678ddbdb0a983d511cb9a0.png");
         background-color: #2b2d2e;
+        position: fixed;
+        
     }
 
     .footer-content {
@@ -517,7 +531,7 @@
 
     {box-sizing: border-box;}
 
-      /* Button used to open the contact form - fixed at the bottom of the page */
+      /* Button used to open the signup form - fixed at the bottom of the page */
       .open-button {
         background-color: #345;
         color: white;
@@ -585,7 +599,137 @@
         opacity: 1;
       }
 
-      .button2 {
+      /* Button used to open the login form - fixed at the bottom of the page */
+      .open-button {
+        background-color: #345;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: relative;
+        bottom: 10px;
+        right: 28px;
+        width: 280px;
+      }
+
+      /* The popup form - hidden by default */
+      .forml-popup {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+      }
+
+      /* Add styles to the form container */
+      .form-containerl {
+        max-width: 300px;
+        padding: 10px;
+        background-color: white;
+      }
+
+      /* Full-width input fields */
+      .form-containerl input[type=text], .form-containerl input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+      }
+
+      /* When the inputs get focus, do something */
+      .form-containerl input[type=text]:focus, .form-containerl input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+
+      /* Set a style for the submit/login button */
+      .form-containerl .btn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom:10px;
+        opacity: 0.8;
+      }
+
+      /* Add a red background color to the cancel button */
+      .form-containerl .cancel {
+        background-color: red;
+      }
+
+      /* Add some hover effects to buttons */
+      .form-containerl .btnl:hover, .open-button:hover {
+        opacity: 1;
+      }
+
+      .searchbar__checkin, .searchbar__checkout {
+        width: 130px
+      }
+
+      .searchbar__checkin input, .searchbar__checkout input {
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0
+      }
+
+      /* Popup container */
+        .popup {
+        position: relative;
+        display: inline;
+        cursor: pointer;
+        }
+
+        /* The actual popup (appears on top) */
+        .popup .popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -80px;
+        }
+
+        /* Popup arrow */
+        .popup .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+        }
+
+        /* Toggle this class when clicking on the popup container (hide and show the popup) */
+        .popup .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s
+        }
+
+        /* Add animation (fade in the popup) */
+        @-webkit-keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
+
+        @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity:1 ;}
+        }
+        .button2 {
         border-radius: 12px;
         padding: 12px 28px;
         background-color: #FF5A5F;
@@ -716,40 +860,43 @@
             <button class="search-btn"> Search </button>
 
         </section> -->
+               <hr>
 
-        <section class="gallery">
+                <h2 class="title">Book a Space</h2> 
 
-            <div class="prices">
+                <div>
+                    
+                </div>       
 
-                <h3>Explore Makerbnb picks</h3>
+                <div>
+                    <% @spaces.each do |space| %>  
+                </div>
+                    <div class="price-stamp">£ <%=space.price_per_night %></div>
+                    <br>
+                    <br>
 
-                <div class="img">
-                    <img src="https://a2.muscache.com/im/pictures/6152848/b04eddeb_original.jpg?aki_policy=x_medium">
-                    <div class="price-stamp">£ 158</div>
-                    <div class="description">
-                        <h4>The Coza, Joshua Tree</h4>
+                    <a href='/<%= space.id %>'><img src="<%= space.image_link %>" alt="Image of the space" style="width:300px;height:300px;"></a>
+                    <div class="name"><%=space.name%></div>
+                    <a href='/<%= space.id %>' style="text-decoration:none;"><div class="description">
+                        <h4> <%=space.description %> </h4></a>
                     </div>
+                    <br>
+                    <div class="dates">
+                    <div class="popup" onclick="myFunction()">Available Dates
+                        <span class="popuptext" id="myPopup"><%=space.available_dates%></span>
+                    </div>
+                    <script>
+                        function myFunction() {
+                        var popup = document.getElementById("myPopup");
+                        popup.classList.toggle("show");
+                        }
+                    </script>
+                    <br>
+                    <br>
+                    <hr>
+                <% end %>
                 </div>
 
-                <div class="img">
-                    <img src="https://a2.muscache.com/im/pictures/34792065/bae84a3f_original.jpg?aki_policy=x_medium">
-                    <div class="price-stamp">R$ 1399</div>
-                    <div class="description">
-                        <h4>Bamburgh Village - Captains Landing'</h4>
-                    </div>
-                </div>
-
-                <div class="img">
-                    <img src="https://a2.muscache.com/im/pictures/1faf9a4c-f839-44da-bd37-65ddc928379e.jpg?aki_policy=x_medium">
-                    <div class="price-stamp">R$ 576</div>
-                    <div class="description">
-                        <h4>Treehouse</h4>
-                    </div>
-                </div>
-
-            </div>
-
-            <hr>
 
             <button class="button2"><a href='/post_space' style="text-decoration:none;">Add a new space</a><br></button>
 

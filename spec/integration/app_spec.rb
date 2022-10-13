@@ -32,7 +32,7 @@ describe Application do
       expect(response.body).to include("<a href='/post_space'>Add a new space</a>")
     end
   end
-  context 'GET /signup' do
+  context 'GET /' do
     it 'should display the signup form' do
       response = get('/signup')
 
