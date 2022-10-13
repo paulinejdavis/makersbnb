@@ -10,13 +10,23 @@
     <input type="text" name="email" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
     </div>
     <div>
-      <label>Name:</label>
+      <label>Space name:</label>
       <input type="text" name="name" required pattern="^[\w\-\s]+$">
     </div>
 
     <div>
-      <label>Description:</label>
-      <input type="text" style="height:200px; width:600px;" name="content" required pattern="^[\.a-zA-Z0-9,!? ]*$">
+      <label>Space description:</label>
+      <input type="text" style="height:200px; width:600px;" name="description" required pattern="^[\w\-\s]+$">
+    </div>
+
+    <div>
+      <label>Price per night:</label>
+      <input type="text" name="price_per_night" required pattern="^\d+$">
+    </div>
+
+    <div>
+      <label>Available dates (format DD/MM/YYYY, separate each date by a comma):</label>
+      <input type="text" name="available_dates" required pattern="^(\s{0,})(\d{2}\/\d{2}\/\d{4})(,\d{2}\/\d{2}\/\d{4}){1,}(\s){0,}$">
     </div>
 
       <input type="submit" value="Add your space to Makersbnb">

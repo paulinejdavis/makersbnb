@@ -52,5 +52,13 @@ describe UserRepository do
       expect(repo.loggedin('ruby1@gmail.com')).not_to be 'true'
     end
   end
+
+  context "find_by_email(email)" do
+    it "finds a user by their email" do
+      repo = UserRepository.new
+
+      expect(repo.find_by_email("joe@gmail.com")).to eq 2
+    end
+  end
   
 end
