@@ -589,12 +589,12 @@
         border-radius: 12px;
         padding: 12px 28px;
         background-color: #FF5A5F;
+        font-size: 16px;
       }
 
       .button2:hover {
       box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
       }
-      
     </style>
 
     <script>
@@ -646,7 +646,6 @@
                 <button>Become a Host</button>
             </li> -->
             <!-- <li class="help">Help</li> -->
-            <li class="button"><a href='/spacesloggedin' style="text-decoration:none;">Go back to the listings page</a><li>
             <li class="logoutopen" onclick="openForm()">Log out</li>
             <div class="form-popup" id="myForm">
                 <form action="/spaceslogout" method="post"class="form-container">
@@ -668,7 +667,12 @@
 
     <main class="site-content">
 
-        
+        <h2 class="title">
+            <span>Spaces.</span>
+             Book unique places and spaces 
+            <br>
+            and experience a city like a local.
+        </h2>
 
         <!-- <section class"search-row">
 
@@ -715,56 +719,39 @@
 
         <section class="gallery">
 
-          
-            <br>
-            <h1 class="title"><span>Post</span> a space</h1>
-            <form action="/post_space" method="POST">
+            <div class="prices">
 
-            <div class="email">
-            <label>User email:</label>
-            <input type="text" name="email" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+                <h3>Explore Makerbnb picks</h3>
+
+                <div class="img">
+                    <img src="https://a2.muscache.com/im/pictures/6152848/b04eddeb_original.jpg?aki_policy=x_medium">
+                    <div class="price-stamp">£ 158</div>
+                    <div class="description">
+                        <h4>The Coza, Joshua Tree</h4>
+                    </div>
+                </div>
+
+                <div class="img">
+                    <img src="https://a2.muscache.com/im/pictures/34792065/bae84a3f_original.jpg?aki_policy=x_medium">
+                    <div class="price-stamp">R$ 1399</div>
+                    <div class="description">
+                        <h4>Bamburgh Village - Captains Landing'</h4>
+                    </div>
+                </div>
+
+                <div class="img">
+                    <img src="https://a2.muscache.com/im/pictures/1faf9a4c-f839-44da-bd37-65ddc928379e.jpg?aki_policy=x_medium">
+                    <div class="price-stamp">R$ 576</div>
+                    <div class="description">
+                        <h4>Treehouse</h4>
+                    </div>
+                </div>
+
             </div>
-            <br>
+
             <hr>
 
-            <div class="name">
-              <label>Space name:</label>
-              <input type="text" name="name" required pattern="^[\w\-\s]+$">
-            </div>
-            <br>
-            <hr>
-
-            <div class="desc">
-              <label style="float:left;">Space description:</label>
-              <br>
-              <textarea type="text" style="height:200px; width:600px;" name="description" required pattern="^[\w\-\s]+$" placeholder="Write a description"></textarea>
-            </div>
-            <br>
-            <hr>
-
-            <div class="pricesper">
-              <label>Price per night:</label>
-              <input type="text" name="price_per_night" required pattern="^\d+$">
-            </div>
-            <br>
-            <hr>
-
-            <div class="avail">
-              <label>Available dates (format DD/MM/YYYY, separate each date by a comma):</label>
-              <input type="text" name="available_dates" required pattern="^(\s{0,})(\d{2}\/\d{2}\/\d{4})(,\d{2}\/\d{2}\/\d{4}){1,}(\s){0,}$">
-            </div>
-              
-               <div>
-                <label>Image URL:</label>
-                <input type="text" name="image_link" required pattern="[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)">
-               </div>
-            <br>
-            <hr>
-
-              <button class="button2" type="submit">Add your space to Makersbnb</button>
-            </form>
- 
-            
+            <button class="button2"><a href='/post_space' style="text-decoration:none;">Add a new space</a><br></button>
 
             <!-- <div class="gallery-places">
 
@@ -1037,3 +1024,4 @@
 </body>
 
 </html>
+

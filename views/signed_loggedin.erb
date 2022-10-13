@@ -1,0 +1,21 @@
+<html>
+  <body>
+    <div>
+      <a href='/logout/form'>Log-out</a>
+    </div>
+    <div>
+      <h1>Book a Space</h1>
+      <a href='/post_space/new'>Add a new space</a>
+    </div>
+    <div>
+        <% @spaces.each do |space| %>
+      <div>
+        <b>By: <%= space.name %></b>
+        <p>
+        <%= space.description %> 
+        </p>
+      </div> 
+      <% end %>  
+    </div>
+  </body>
+</html>
