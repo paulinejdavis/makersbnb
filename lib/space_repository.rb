@@ -18,7 +18,7 @@ class SpaceRepository
         space.user_id = record['user_id'].to_i
 
         spaces << space
-    end
+      end
     return spaces
   end
 
