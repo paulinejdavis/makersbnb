@@ -664,6 +664,69 @@
       .form-containerl .btnl:hover, .open-button:hover {
         opacity: 1;
       }
+
+      .searchbar__checkin, .searchbar__checkout {
+        width: 130px
+      }
+
+      .searchbar__checkin input, .searchbar__checkout input {
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0
+      }
+
+      /* Popup container */
+        .popup {
+        position: relative;
+        display: inline;
+        cursor: pointer;
+        }
+
+        /* The actual popup (appears on top) */
+        .popup .popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -80px;
+        }
+
+        /* Popup arrow */
+        .popup .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+        }
+
+        /* Toggle this class when clicking on the popup container (hide and show the popup) */
+        .popup .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s
+        }
+
+        /* Add animation (fade in the popup) */
+        @-webkit-keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
+
+        @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity:1 ;}
+        }
     </style>
 
     <script>
@@ -694,9 +757,9 @@
       }
     </script>
 
+   
+    
 </head>
-
-<body translate="no">
     <header>
 
         <h1 class="logo">
@@ -827,8 +890,16 @@
                         <h4> <%=space.description %> </h4>
                     </div>
                     <div class="dates">
-                        <%=space.available_dates %>
+                    <div class="popup" onclick="myFunction()">Available Dates
+                        <span class="popuptext" id="myPopup"><%=space.available_dates%></span>
                     </div>
+                    <script>
+                        function myFunction() {
+                        var popup = document.getElementById("myPopup");
+                        popup.classList.toggle("show");
+                        }
+                    </script>
+                    <br>
                     <br>
                     <hr>
                 <% end %>
